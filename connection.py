@@ -1,13 +1,14 @@
+from django.conf import settings
+
+from urllib import urlencode
+
 import urllib2
 import hashlib
 import json
 
-from urllib import urlencode
-import settings
-
 
 class APIConn:
-    url = 'http://camniomedia.com/whcms/whmcs/includes/api.php'
+    url = ''
     username = ''
     password = ''
     responsetype = 'json'
@@ -18,6 +19,7 @@ class APIConn:
         m.update(settings.WHMCS_PASSWORD)
         self.password = m.hexdigest()
         self.username = settings.WHMCS_USERNAME
+        self.url      = settings.WHMCS_URL
     
     def request(self, data):
         data['username'] = self.username

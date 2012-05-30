@@ -1,1 +1,7 @@
-settings.py
+.DS_Store
+*.log
+*.pot
+*.pyc
+*.swp
+__pycache__/*
+__pycache__
